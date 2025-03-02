@@ -9,6 +9,7 @@
         padding: 10px 20px;
         border-bottom: 2px solid #A6D5A8;
         height: 25px;
+        height: 25px;
     }
     .brand-name {
         color: #88B888;
@@ -38,10 +39,12 @@
     }
     .logo {
         height: 35px;
+        height: 35px;
         margin-right: 10px;
     }
     .brand-name {
         color: #88B888;
+        font-size: 26px;
         font-size: 26px;
         font-weight: bold;
     }
@@ -67,6 +70,7 @@
 
 .login-btn, .profile-btn, .profile-icon, .chat-btn {
     background-color: #a5d6a7; 
+    background-color: #a5d6a7; 
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -75,13 +79,18 @@
 
 .login-btn {
     padding: 6px 20px;
+    padding: 6px 20px;
     font-size: 14px;
+    color: #FFFFFF; 
+    height: 35px;
+    font-weight: bold;
     color: #FFFFFF; 
     height: 35px;
     font-weight: bold;
 }
 
 .login-btn:hover, .profile-btn:hover, .profile-icon:hover, .chat-btn:hover {
+    background-color: #81c784; 
     background-color: #81c784; 
 }
 
@@ -154,7 +163,7 @@ main {
 }
 
 .featured-item {
-    flex: 1;
+    width: 500px;
     background-color: #f5f5f5;
     border: 2px dashed #ccc;
     margin-right: 3%;
@@ -176,11 +185,17 @@ main {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);  /* Tres columnas de tamaño proporcional */
     gap: 20px;
     margin-top: 5%;
     width: 80%;
     align-self: center;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;  /* El contenedor tiene un ancho relativo del 80% del elemento padre */
+    max-width: 900px;  /* Puedes establecer un valor máximo si lo deseas */
+    margin: 0 auto;  /* Centra el contenedor */
 }
 
 .grid-item {
@@ -192,6 +207,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     width: 80%;
 }
