@@ -17,10 +17,10 @@
 
     </div>
     <div class="header-center">
-            <input type="text" class="search-bar" placeholder="Buscar...">
+            <input type="text" class="search-bar buscar" placeholder="Buscar...">
         </div>
         <div class="header-right">
-            <button class="icon-btn" id="settingsBtn">
+            <button class="icon-btn" id="settings-btn">
                 <i class="fas fa-cog"></i>
             </button>
             <button class="icon-btn" id="notificationsBtn">
@@ -41,15 +41,15 @@
             <p><strong>Te ha llegado una nueva solicitud</strong></p>
             <p class="subtext">Usuario1 te ha hecho una solicitud</p>
             <div class="notification-actions">
-                <button class="accept-btn">Aceptar</button>
-                <button class="reject-btn">Rechazar</button>
+                <button class="btn">Aceptar</button>
+                <button class="btn">Rechazar</button>
             </div>
         </div>
         <div class="notification">
             <button class="close-btn">&times;</button>
             <p><strong>Título de la notificación</strong></p>
             <p class="subtext">Descripción breve.</p>
-            <button class="disable-btn">Desactivar</button>
+            <button class="btn">Desactivar</button>
         </div>
     </div>
 
@@ -61,7 +61,7 @@
         <div class="user-details">
             <h3>Usuario</h3>
             <p>Correo electrónico</p>
-            <button class="view-profile-btn">Ver perfil</button>
+            <button class="btn" id="profile-btn">Ver perfil</button>
         </div>
     </div>
     
@@ -79,7 +79,7 @@
     <div class="modal-content">
         <span class="close-btn" onclick="closeLogoutConfirm()">×</span>
         <h2>¿Estás seguro?</h2>
-        <button class="confirm-btn" onclick="logout()">Aceptar</button>
+        <button class="btn" onclick="logout()">Aceptar</button>
     </div>
 </div>
 
@@ -89,7 +89,7 @@
         <span class="close-btn" onclick="closeLogoutMessage()">×</span>
         <h2>Sesión cerrada</h2>
         <p>Tu sesión se ha cerrado correctamente. Vuelve pronto.</p>
-        <button class="confirm-btn" onclick="closeLogoutMessage()">Aceptar</button>
+        <button class="btn" onclick="closeLogoutMessage()">Aceptar</button>
     </div>
 </div>
     
@@ -139,7 +139,7 @@
                 <p>¿Qué ofrece?</p>
             </div>
         </div>
-        <button class="chat-btn"><i class="fas fa-comments"></i></button>
+        <button onclick=""><i class="fas fa-comments"></i></button>
     </main>
     <footer>
         <p>Copyright 2025 | Privacidad | Condiciones de uso</p>

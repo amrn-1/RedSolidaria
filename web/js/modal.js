@@ -1,63 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Elementos del DOM
-    const settingsBtn = document.getElementById('settings-btn');
-    const editBtn = document.getElementById('edit-btn');
-    const login = document.getElementById('login');
-    const userBtn = document.querySelector('.header-right .icon-btn:nth-child(3)'); // Botón de usuario (tercero en header-right)
-
-    // Función para abrir modal de login
-    function openLoginModal() {
-        const loginModal = document.getElementById('loginModal');
-        if (loginModal) {
-            loginModal.style.display = 'block';
-        }
-    }
-
-    // Función para cerrar modal de login
-    function closeLoginModal() {
-        const loginModal = document.getElementById('loginModal');
-        if (loginModal) {
-            loginModal.style.display = 'none';
-        }
-    }
-
-    // Redirigir a Cuenta.html al hacer clic en el botón de configuración
-    if (settingsBtn) {
-        settingsBtn.addEventListener('click', function() {
-            window.location.href = 'Cuenta.html';
-        });
-    }
-    
-    if (editBtn) {
-        editBtn.addEventListener('click', function() {
-            window.location.href = 'principal.html';
-        });
-    }
-
-    // Abrir modal de login al hacer clic en el botón de usuario
-    if (userBtn) {
-        userBtn.addEventListener('click', function() {
-            openLoginModal();
-        });
-    }
-
-    // Cerrar modal de login si el usuario hace clic fuera
-    window.onclick = function(event) {
-        const loginModal = document.getElementById('loginModal');
-        if (event.target === loginModal) {
-            closeLoginModal();
-        }
-    };
-});
-
 function openModal() {
-    document.getElementById("loginModal").style.display = "block";
+    const modal = document.getElementById("loginModal");
+    if (modal) modal.style.display = "block";
 }
 
 function closeModal() {
-    document.getElementById("loginModal").style.display = "none";
+    const modal = document.getElementById("loginModal");
+    if (modal) modal.style.display = "none";
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
     // Elementos del DOM
@@ -66,11 +15,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const userBtn = document.getElementById("userBtn");
     const username = document.querySelector('.username');
     const userDropdown = document.getElementById("userDropdown");
+    const settingsBtn = document.getElementById('settings-btn');
+    const editBtn = document.getElementById('edit-btn');
+    const profile = document.getElementById('profile-btn'); // Corregido "porfile" a "profile"
+
+    // Redirecciones
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', function() {
+            window.location.href = 'Cuenta.html';
+        });
+    }
+
+    if (editBtn) {
+        editBtn.addEventListener('click', function() {
+            window.location.href = 'principal.html';
+        });
+    }
+
+
+    if (profile) {
+        profile.addEventListener('click', function() {
+            window.location.href = 'Perfil.html';
+        });
+    }
 
     // Función para cerrar todos los menús/dropdowns
     function closeAllMenus() {
-        notificationsMenu.style.display = "none";
-        userDropdown.classList.remove('active');
+        if (notificationsMenu) notificationsMenu.style.display = "none";
+        if (userDropdown) userDropdown.classList.remove('active');
     }
 
     // Manejar el menú de notificaciones
@@ -81,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Manejar el dropdown de usuario (usando userBtn y username)
+    // Manejar el dropdown de usuario
     if (userBtn && userDropdown) {
         userBtn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -90,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if (username && userDropdown) {
+    if (username && userDropdown && userBtn) {
         username.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -103,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (notificationsBtn && notificationsMenu && !notificationsBtn.contains(e.target) && !notificationsMenu.contains(e.target)) {
             notificationsMenu.style.display = "none";
         }
-        if (userBtn && userDropdown && !userBtn.contains(e.target) && !userDropdown.contains(e.target) && !username.contains(e.target)) {
+        if (userBtn && userDropdown && !userBtn.contains(e.target) && !userDropdown.contains(e.target) && (!username || !username.contains(e.target))) {
             userDropdown.classList.remove('active');
         }
     });
@@ -129,24 +101,81 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Funciones para manejar cerrar sesión
     window.showLogoutConfirm = function() {
-        document.getElementById('logoutConfirm').style.display = 'flex';
+        const logoutConfirm = document.getElementById('logoutConfirm');
+        if (logoutConfirm) logoutConfirm.style.display = 'flex';
     };
 
     window.closeLogoutConfirm = function() {
-        document.getElementById('logoutConfirm').style.display = 'none';
+        const logoutConfirm = document.getElementById('logoutConfirm');
+        if (logoutConfirm) logoutConfirm.style.display = 'none';
     };
 
     window.logout = function() {
         closeLogoutConfirm();
-        document.getElementById('logoutMessage').style.display = 'flex';
-        
+        const logoutMessage = document.getElementById('logoutMessage');
+        if (logoutMessage) logoutMessage.style.display = 'flex';
     };
 
     window.closeLogoutMessage = function() {
-        document.getElementById('logoutMessage').style.display = 'none';
-        window.location.href = 'index.html'; // Redirigir al login
+        const logoutMessage = document.getElementById('logoutMessage');
+        if (logoutMessage) {
+            logoutMessage.style.display = 'none';
+            window.location.href = 'index.html'; // Redirigir al login
+        }
     };
 
-    // Manejar el botón "Iniciar Sesión" para abrir el modal (si existe)
-    
+    // Elementos adicionales
+    const serviceBtn = document.querySelector('.action-btn'); // Botón "Anuncia un nuevo servicio"
+    const statsBtn = document.querySelector('.stats-btn');
+    const editIcon = document.querySelector('.edit-icon');
+
+    // Función para abrir modales genéricos
+    function openModalById(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'block';
+    }
+
+    // Función para cerrar modales genéricos
+    function closeModalById(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'none';
+    }
+
+    // Abrir modal de servicio al hacer clic en el botón o el ícono de edición
+    if (serviceBtn) {
+        serviceBtn.addEventListener('click', function() {
+            openModalById('serviceModal');
+        });
+    }
+
+    if (editIcon) {
+        editIcon.addEventListener('click', function() {
+            openModalById('serviceModal');
+        });
+    }
+
+    // Abrir modal de estadísticas al hacer clic en el botón "Estadísticas"
+    if (statsBtn) {
+        statsBtn.addEventListener('click', function() {
+            openModalById('statsModal');
+        });
+    }
+
+    // Cerrar modales al hacer clic en la "X" o fuera del modal
+    document.querySelectorAll('.close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) {
+                closeModalById(modal.id);
+            }
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        document.querySelectorAll('.modal').forEach(modal => {
+            if (event.target === modal) {
+                closeModalById(modal.id);
+            }
+        });
+    });
 });
