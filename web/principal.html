@@ -17,21 +17,81 @@
 
     </div>
     <div class="header-center">
-        <input type="text" class="search-bar" placeholder="Buscar...">
+            <input type="text" class="search-bar" placeholder="Buscar...">
+        </div>
+        <div class="header-right">
+            <button class="icon-btn" id="settingsBtn">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="icon-btn" id="notificationsBtn">
+                <i class="fas fa-bell"></i>
+            </button>
+            <button class="icon-btn" id="userBtn">
+                <i class="fas fa-user"></i>
+            </button>
+            <span class="username">Usuario</span>
+        </div>
+    </header>
+    
+    <!-- Menú de Notificaciones -->
+    <div id="notificationsDropdown" class="notifications-panel">
+        <h3 class="panel-title">Notificaciones</h3>
+        <div class="notification">
+            <button class="close-btn">&times;</button>
+            <p><strong>Te ha llegado una nueva solicitud</strong></p>
+            <p class="subtext">Usuario1 te ha hecho una solicitud</p>
+            <div class="notification-actions">
+                <button class="accept-btn">Aceptar</button>
+                <button class="reject-btn">Rechazar</button>
+            </div>
+        </div>
+        <div class="notification">
+            <button class="close-btn">&times;</button>
+            <p><strong>Título de la notificación</strong></p>
+            <p class="subtext">Descripción breve.</p>
+            <button class="disable-btn">Desactivar</button>
+        </div>
     </div>
-    <div class="header-right">
-        <button class="icon-btn" onclick="openModal('settingsModal')">
-            <i class="fas fa-cog"></i>
-        </button>
-        <button class="icon-btn" onclick="openModal('notificationsModal')">
-            <i class="fas fa-bell"></i>
-        </button>
-        <button class="icon-btn" onclick="openModal('userModal')">
-            <i class="fas fa-user"></i>
-        </button>
-        <span class="username">Usuario</span>
+
+    <!-- Dropdown de usuario -->
+<!-- Dropdown de usuario -->
+<div class="user-dropdown" id="userDropdown">
+    <div class="user-info">
+        <img src="img/usuario.jpg" alt="Usuario">
+        <div class="user-details">
+            <h3>Usuario</h3>
+            <p>Correo electrónico</p>
+            <button class="view-profile-btn">Ver perfil</button>
+        </div>
     </div>
-</header>
+    
+
+    <ul class="user-menu">
+        <li><a href="#">Banco Solidario</a></li>
+        <li><a href="#">Transacciones</a></li>
+        <li><a href="#">Reportes y Denuncias</a></li>
+    </ul>
+    <button class="logout-btn" onclick="showLogoutConfirm()">Cerrar Sesión</button>
+
+</div>
+<!-- Modal de confirmación de cerrar sesión -->
+<div class="modal logout-confirm" id="logoutConfirm">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeLogoutConfirm()">×</span>
+        <h2>¿Estás seguro?</h2>
+        <button class="confirm-btn" onclick="logout()">Aceptar</button>
+    </div>
+</div>
+
+<!-- Mensaje de sesión cerrada (puede ser un modal temporal) -->
+<div class="modal logout-message" id="logoutMessage">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeLogoutMessage()">×</span>
+        <h2>Sesión cerrada</h2>
+        <p>Tu sesión se ha cerrado correctamente. Vuelve pronto.</p>
+        <button class="confirm-btn" onclick="closeLogoutMessage()">Aceptar</button>
+    </div>
+</div>
     
     <main>
         <div class="search-bar">
