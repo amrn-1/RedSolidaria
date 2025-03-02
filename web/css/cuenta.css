@@ -3,7 +3,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : Mar 1, 2025, 4:41:14 PM
+    Created on : Mar 1, 2025, 9:10:47 PM
     Author     : arlet
 */
 
@@ -44,15 +44,7 @@ body {
 h1 {
     color: #006400; /* Dark green color */
     font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.registered-email {
-    color: #006400; /* Dark green color */
-    font-size: 16px;
-    font-weight: bold;
-    margin: 20px 0 10px;
-    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .description {
@@ -60,6 +52,60 @@ h1 {
     font-size: 14px;
     margin-bottom: 20px;
     line-height: 1.5;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+label {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    appearance: none; /* Remove default arrow in some browsers */
+    background: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 20px;
+}
+
+.password-requirements,
+.requirements {
+    font-size: 12px;
+    color: #666;
+    text-align: left;
+    margin-top: 5px;
+    padding-left: 15px;
+}
+
+.password-requirements li,
+.requirements li {
+    margin-bottom: 5px;
 }
 
 button {
@@ -76,6 +122,19 @@ button {
 
 button:hover {
     background-color: #45a049; /* Darker green on hover */
+}
+
+.back-link {
+    display: block;
+    color: #006400; /* Dark green color */
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.back-link:hover {
+    text-decoration: underline;
 }
 
 /* Responsive design */
